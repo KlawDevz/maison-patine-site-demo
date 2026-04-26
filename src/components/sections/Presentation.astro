@@ -1,0 +1,14 @@
+---
+type Props = {
+  intro: string;
+  positioning: string;
+};
+
+const { intro, positioning } = Astro.props as Props;
+---
+
+<section id="presentation" class="section-shell" aria-labelledby="presentation-title">
+  <h2 id="presentation-title" class="section-title">Présentation</h2>
+  <p class="section-copy mt-4 max-w-3xl">{intro}</p>
+  <p class="section-copy mt-3 max-w-3xl">{positioning}</p>
+</section>

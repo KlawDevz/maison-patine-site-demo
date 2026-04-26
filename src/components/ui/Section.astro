@@ -1,0 +1,22 @@
+---
+/**
+ * Wrapper de section réutilisable
+ * Props : id, ariaLabelledBy, class
+ */
+
+type Props = {
+  id?: string;
+  ariaLabelledBy?: string;
+  class?: string;
+};
+
+const { id, ariaLabelledBy, class: className = '' } = Astro.props;
+---
+
+<section
+  {...id && { id }}
+  {...ariaLabelledBy && { 'aria-labelledby': ariaLabelledBy }}
+  class={`section ${className}`}
+>
+  <slot />
+</section>

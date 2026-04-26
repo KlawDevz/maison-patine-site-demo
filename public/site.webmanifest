@@ -1,0 +1,16 @@
+{
+  "name": "Maison Patine",
+  "short_name": "Maison Patine",
+  "description": "Brocante, Décoration et Artisanat à Mirepoix",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F0E8",
+  "theme_color": "#3B2F24",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

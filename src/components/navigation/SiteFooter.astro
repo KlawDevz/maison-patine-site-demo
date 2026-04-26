@@ -1,0 +1,93 @@
+---
+import { siteData } from "../../data/site";
+
+const footerLinks = [
+  { href: "/", label: "Accueil" },
+  { href: "/presentation", label: "Présentation" },
+  { href: "/activites", label: "Activités" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/contact", label: "Contact" }
+];
+---
+
+<footer class="site-footer mx-auto mt-6 w-full max-w-6xl px-4 pb-8 md:px-8" role="contentinfo">
+  <section class="section-shell">
+    <div class="flex flex-wrap items-start justify-between gap-6">
+      <div>
+        <p class="footer-brand text-sm uppercase tracking-[0.18em] text-[color:var(--ink-500)]">{siteData.common.brand}</p>
+        <p class="section-copy mt-2 max-w-md">{siteData.common.activityLine}</p>
+      </div>
+
+      <nav aria-label="Liens de pied de page">
+        <ul class="flex flex-wrap gap-2" role="list">
+          {footerLinks.map((link) => (
+            <li>
+              <a class="anchor-link" href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[color:var(--line)] pt-4 text-xs text-[color:var(--ink-500)]">
+        <p>{siteData.common.footer.legalLine}</p>
+        <div class="footer-contact-links flex flex-wrap gap-3">
+          <a class="footer-contact-link" href={siteData.common.phoneHref} aria-label={`Appeler ${siteData.common.brand} au ${siteData.common.phoneDisplay}`}>
+            {siteData.common.phoneDisplay}
+          </a>
+          <a class="footer-contact-link" href={`mailto:${siteData.common.email}`}>{siteData.common.email}</a>
+        </div>
+      </div>
+    </section>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 2rem;
+  }
+
+  .site-footer :global(.section-shell) {
+    background:
+      radial-gradient(circle at 85% 10%, rgba(176, 139, 87, 0.16), transparent 35%),
+      color-mix(in srgb, var(--surface-rich) 86%, #fff 14%);
+  }
+
+  .footer-brand {
+    font-family: var(--font-display);
+    letter-spacing: 0.14em;
+    font-weight: 500;
+  }
+
+  .footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--ink-700);
+    transition: color var(--motion-fast) var(--ease-snappy), box-shadow var(--motion-fast) var(--ease-snappy), transform var(--motion-fast) var(--ease-snappy);
+  }
+
+  .footer-contact-link:hover,
+  .footer-contact-link:focus-visible {
+    color: var(--brand);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(43, 32, 24, 0.08);
+  }
+
+  .footer-contact-link:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .footer-contact-link:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  @media (hover: none) {
+    .footer-contact-link:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { siteData } from "../data/site";
+---
+
+<MainLayout
+  title={siteData.metaByPage.presentation.title}
+  description={siteData.metaByPage.presentation.description}
+  canonicalPath={siteData.metaByPage.presentation.canonicalPath}
+>
+  <main id="main-content" class="presentation-page mx-auto flex w-full max-w-[1240px] flex-col gap-10 px-5 py-10 md:px-8 md:py-20">
+    <section class="presentation-hero section-shell panel-glow reveal" aria-labelledby="presentation-title">
+      <div class="presentation-grid">
+        <div>
+          <p class="presentation-kicker da-eyebrow">L'ESPRIT MAISON PATINE</p>
+          <p class="da-ornament">Narration visuelle</p>
+          <h1 id="presentation-title" class="section-title">{siteData.pages.presentation.title}</h1>
+          <p class="section-copy mt-4 max-w-3xl text-base md:text-lg">{siteData.pages.presentation.lead}</p>
+          <div class="mt-5 space-y-4">
+            {siteData.pages.presentation.paragraphs.map((paragraph) => (
+              <p class="section-copy max-w-3xl">{paragraph}</p>
+            ))}
+          </div>
+          <p class="presentation-location">{siteData.pages.presentation.locationNote}</p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn-primary" href="/galerie">Voir la galerie</a>
+            <a class="anchor-link border border-[color:var(--line)]" href="/contact">Nous contacter</a>
+          </div>
+        </div>
+
+        <figure class="presentation-image-card">
+          <img
+            src="/images/placeholders/presentation-editorial-02.webp"
+            srcset="/images/placeholders/presentation-editorial-02.webp 960w"
+            sizes="(max-width: 979px) 100vw, 42vw"
+            alt="Interieur d'une boutique d'antiquites avec objets vintage"
+            loading="eager"
+            width="960"
+            height="1200"
+          />
+          <figcaption>Visuel d'inspiration temporaire - en attente des photos client.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-shell panel-glow reveal" aria-labelledby="presentation-values-title">
+      <h2 id="presentation-values-title" class="section-title">Notre approche</h2>
+      <div class="values-grid mt-6">
+        <article>
+          <h3>Sélection éditoriale</h3>
+          <p class="section-copy">Chaque pièce est choisie pour sa singularité, sa qualité de fabrication et sa place dans une ambiance cohérente.</p>
+        </article>
+        <article>
+          <h3>Mise en scène sensible</h3>
+          <p class="section-copy">Nous travaillons les harmonies de matières, de couleurs et de volumes pour proposer des intérieurs vivants.</p>
+        </article>
+        <article>
+          <h3>Conseil de proximité</h3>
+          <p class="section-copy">Un accompagnement simple et humain pour imaginer votre projet décoratif au rythme des trouvailles.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .presentation-kicker {
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+    margin-bottom: 0.75rem;
+  }
+
+  .presentation-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .presentation-hero {
+    background:
+      radial-gradient(circle at 88% 12%, rgba(176, 139, 87, 0.16), transparent 34%),
+      linear-gradient(150deg, color-mix(in srgb, var(--surface-rich) 90%, #fff 10%) 0%, color-mix(in srgb, var(--bg-alt) 85%, #fff 15%) 100%);
+    box-shadow: 0 16px 26px rgba(43, 32, 24, 0.08);
+  }
+
+  .presentation-location {
+    margin-top: 1.2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+  }
+
+  .presentation-image-card {
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--bg-alt) 86%, #fff 14%);
+    box-shadow: 0 12px 24px rgba(43, 32, 24, 0.08);
+  }
+
+  .presentation-image-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 24rem;
+    object-fit: cover;
+    transition: transform 700ms ease;
+  }
+
+  .presentation-image-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .presentation-image-card figcaption {
+    padding: 0.65rem 0.85rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.75rem;
+    color: var(--ink-500);
+    letter-spacing: 0.03em;
+  }
+
+  .values-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .values-grid article {
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 1.2rem;
+    background: linear-gradient(170deg, color-mix(in srgb, var(--bg-alt) 86%, #fff 14%), color-mix(in srgb, var(--surface) 90%, #fff 10%));
+    transition: transform 320ms ease, border-color 320ms ease;
+    box-shadow: 0 8px 16px rgba(43, 32, 24, 0.05);
+  }
+
+  .values-grid article:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--line) 56%, var(--brand) 44%);
+    box-shadow: 0 14px 24px rgba(43, 32, 24, 0.1);
+  }
+
+  .values-grid h3 {
+    font-size: 1.55rem;
+    margin-bottom: 0.55rem;
+    line-height: 1.18;
+  }
+
+  @media (min-width: 980px) {
+    .presentation-grid {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      align-items: stretch;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

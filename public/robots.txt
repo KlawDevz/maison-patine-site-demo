@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maisonpatine.fr/sitemap-index.xml

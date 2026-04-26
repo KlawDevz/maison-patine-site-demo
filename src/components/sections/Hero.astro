@@ -1,0 +1,41 @@
+---
+import SkipLink from '../navigation/SkipLink.astro';
+
+type Props = {
+  brand: string;
+  activityLine: string;
+  tagline: string;
+};
+
+const { brand, activityLine, tagline } = Astro.props as Props;
+---
+
+<SkipLink />
+
+<header id="top" class="section-shell" role="banner">
+  <nav aria-label="Navigation principale" class="mb-8 flex flex-wrap gap-2">
+    <a class="anchor-link" href="#presentation">Présentation</a>
+    <a class="anchor-link" href="#activites">Activités</a>
+    <a class="anchor-link" href="#galerie">Galerie</a>
+    <a class="anchor-link" href="#infos">Infos pratiques</a>
+    <a class="anchor-link" href="#contact">Contact</a>
+  </nav>
+
+  <div class="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-end">
+    <div>
+      <p class="mb-3 text-sm uppercase tracking-[0.2em] text-[color:var(--ink-500)]">Boutique à Mirepoix</p>
+      <h1 class="text-4xl font-semibold leading-tight md:text-6xl">{brand}</h1>
+      <p class="mt-4 text-lg text-[color:var(--ink-700)]">{activityLine}</p>
+      <p class="section-copy mt-4 max-w-2xl text-base md:text-lg">{tagline}</p>
+      <div class="mt-6">
+        <a class="btn-primary" href="#contact">Nous contacter</a>
+      </div>
+    </div>
+    <div class="border border-[color:var(--line)] bg-[color:var(--bg-alt)] p-6" style="border-radius:2px;">
+      <p class="text-sm text-[color:var(--ink-500)]">Base V1 évolutive</p>
+      <p class="mt-2 text-[color:var(--ink-700)]">
+        Cette version pose une structure claire et rapide à mettre à jour après la collecte des vraies photos et informations.
+      </p>
+    </div>
+  </div>
+</header>

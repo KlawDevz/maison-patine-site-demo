@@ -1,0 +1,223 @@
+---
+import { siteData } from "../../data/site";
+
+const navItems = [
+  { href: "/", label: "Accueil" },
+  { href: "/presentation", label: "Présentation" },
+  { href: "/activites", label: "Activités" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/contact", label: "Contact" }
+];
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+---
+
+<header class="site-head mx-auto w-full max-w-6xl px-4 pt-5 md:px-8 md:pt-7">
+  <nav aria-label="Navigation principale" class="section-shell nav-shell flex flex-wrap items-center justify-between gap-4">
+    <a href="/" class="brand-link inline-flex items-center gap-3" aria-label={`Retour à l'accueil - ${siteData.common.brand}`}>
+      <img
+        src="/images/logo.png"
+        alt="Logo Maison Patine"
+        width="64"
+        height="64"
+        loading="eager"
+        class="h-9 w-9 object-contain"
+      />
+      <span class="brand-text-wrap">
+        <span class="brand-name">{siteData.common.brand}</span>
+        <span class="brand-line">Brocante · Décoration · Artisanat</span>
+      </span>
+    </a>
+    <ul class="nav-links flex flex-wrap items-center gap-2" role="list">
+      {navItems.map((item) => {
+        const itemPath = item.href.replace(/\/+$/, "") || "/";
+        const isActive = itemPath === currentPath;
+
+        return (
+          <li>
+            <a
+              href={item.href}
+              class="anchor-link"
+              aria-current={isActive ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding-bottom: 0.65rem;
+    background: transparent;
+  }
+
+  .nav-shell {
+    position: relative;
+    overflow: clip;
+    backdrop-filter: none;
+    background:
+      radial-gradient(circle at 12% -34%, rgba(176, 139, 87, 0.2), transparent 58%),
+      linear-gradient(142deg, color-mix(in srgb, var(--surface-rich) 91%, #fff 9%) 0%, color-mix(in srgb, var(--bg-alt) 86%, #fff 14%) 100%);
+    border-color: color-mix(in srgb, var(--line) 70%, rgba(176, 139, 87, 0.34));
+    box-shadow: 0 10px 24px rgba(43, 32, 24, 0.1);
+  }
+
+  .nav-shell::before,
+  .nav-shell::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .nav-shell::before {
+    inset: 0.4rem;
+    border: 1px solid color-mix(in srgb, var(--accent-gold) 28%, transparent);
+    opacity: 0.6;
+  }
+
+  .nav-shell::after {
+    inset: auto 1.1rem 0.62rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-gold) 46%, transparent), transparent);
+  }
+
+  .brand-link {
+    min-height: 44px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .brand-link:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .brand-text-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-900);
+  }
+
+  .brand-line {
+    margin-top: 0.25rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+  }
+
+  .nav-links {
+    position: relative;
+    z-index: 1;
+    gap: 0.45rem;
+  }
+
+  .nav-shell :global(.anchor-link) {
+    font-size: 0.76rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    border: 1px solid color-mix(in srgb, var(--line) 64%, rgba(176, 139, 87, 0.45));
+    background: color-mix(in srgb, var(--bg-main) 90%, #fff 10%);
+    color: var(--ink-900);
+    font-weight: 600;
+    transition: transform var(--motion-fast) var(--ease-snappy), border-color var(--motion-fast) var(--ease-snappy), background-color var(--motion-fast) var(--ease-snappy), color var(--motion-fast) var(--ease-snappy), box-shadow var(--motion-fast) var(--ease-snappy);
+    box-shadow: inset 0 -1px 0 rgba(43, 32, 24, 0.05);
+  }
+
+  .nav-links a[aria-current="page"] {
+    color: color-mix(in srgb, var(--brand-soft) 80%, #2b2018 20%);
+    border-color: color-mix(in srgb, var(--brand) 60%, var(--line) 40%);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 12%, #fff 88%), color-mix(in srgb, var(--bg-main) 88%, #fff 12%));
+    box-shadow: 0 7px 14px rgba(43, 32, 24, 0.1);
+  }
+
+  .nav-links a[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .nav-links a {
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.42rem;
+    height: 1px;
+    background: color-mix(in srgb, var(--accent-gold) 65%, transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--motion-fast) var(--ease-snappy);
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    border-color: color-mix(in srgb, var(--brand) 44%, var(--line) 56%);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 14px rgba(43, 32, 24, 0.1);
+  }
+
+  .nav-links a:active {
+    transform: translateY(0);
+    box-shadow: inset 0 -1px 0 rgba(43, 32, 24, 0.05);
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  @media (max-width: 760px) {
+    .site-head {
+      position: static;
+    }
+
+    .nav-shell {
+      padding: 0.95rem;
+    }
+
+    .brand-line {
+      display: none;
+    }
+
+    .nav-links {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scroll-snap-type: x proximity;
+      gap: 0.5rem;
+    }
+
+    .nav-links li {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+  }
+
+  @media (hover: none) {
+    .nav-links a:hover {
+      transform: none;
+      box-shadow: inset 0 -1px 0 rgba(43, 32, 24, 0.05);
+    }
+  }
+</style>

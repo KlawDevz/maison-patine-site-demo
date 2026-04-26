@@ -1,0 +1,363 @@
+Cahier des charges V1 — Maison Patine
+Version prête à donner à ton développeur
+Tu peux copier-coller ce document tel quel.
+
+Cahier des charges V1 — Site vitrine Maison Patine
+1. Contexte du projet
+Création d’une V1 de site vitrine pour la boutique Maison Patine.Cette version a pour but de poser une base propre, simple et modifiable rapidement, à partir des informations actuellement disponibles.
+Cette V1 n’est pas la version finale.Elle doit permettre :
+
+de matérialiser la présence web de la boutique,
+de préparer une démonstration crédible,
+de faciliter une mise à jour rapide après collecte de vraies photos et informations terrain.
+
+
+2. Objectif de la V1
+La V1 doit permettre de :
+
+présenter la boutique de manière claire,
+afficher les informations essentielles,
+rendre visibles les activités principales,
+proposer des moyens de contact simples,
+servir de base de travail pour une V2 enrichie.
+
+Objectif principal utilisateur
+Permettre à un visiteur de comprendre rapidement :
+
+ce qu’est Maison Patine,
+où se trouve la boutique,
+comment la contacter,
+et quels types d’univers / produits elle propose.
+
+
+3. Format attendu
+
+site vitrine one-page
+responsive
+simple à modifier
+structure propre et réutilisable
+contenu facilement remplaçable
+
+Type de page attendu
+Une seule page avec navigation interne par ancres si nécessaire.
+
+4. Périmètre fonctionnel de la V1
+La V1 doit contenir uniquement les sections suivantes :
+4.1. Section d’introduction / hero
+Doit contenir :
+
+nom de la boutique
+activité principale
+courte phrase de présentation
+bouton ou accès rapide vers le contact
+
+4.2. Section présentation
+Doit contenir :
+
+un texte court de présentation de l’univers de la boutique
+un positionnement simple et lisible
+
+4.3. Section activités / univers
+Doit présenter les grandes catégories de l’activité :
+
+brocante
+décoration
+artisanat
+achats de meubles et objets anciens
+
+4.4. Section informations pratiques
+Doit contenir :
+
+adresse
+téléphone
+email
+éventuellement horaires si validés plus tard
+possibilité d’afficher une mention temporaire du type :
+“horaires à confirmer”
+
+
+
+4.5. Section galerie / visuels
+Doit prévoir :
+
+un espace galerie prêt à recevoir les vraies photos
+possibilité d’utiliser des images temporaires ou placeholders
+remplacement facile des visuels sans modifier la structure
+
+4.6. Section contact / réseaux sociaux
+Doit contenir :
+
+téléphone cliquable
+email cliquable
+lien Instagram
+lien Facebook
+
+
+5. Contenus disponibles à intégrer en V1
+Informations actuellement disponibles
+
+Nom : Maison Patine
+Activités : brocante, décoration, artisanat
+Adresse : 20 rue Vigarozy, 09500 Mirepoix
+Téléphone : 06 73 28 95 58
+Email : maisonpatine@outlook.fr
+Facebook : MaisonPatine
+Instagram : maisonpatine_
+Mention complémentaire : achats de meubles et objets anciens
+
+Important
+Les contenus textuels peuvent être :
+
+provisoires,
+courts,
+faciles à modifier ensuite.
+
+
+6. Contenus à prévoir comme modifiables
+Le développeur doit structurer la V1 pour que les éléments suivants soient faciles à changer :
+
+titre principal
+phrase d’accroche
+texte de présentation
+intitulés des catégories
+adresse
+horaires
+téléphone
+email
+liens réseaux sociaux
+images
+ordre des sections si besoin
+
+Exigence
+Aucun contenu ne doit être “dur à modifier” ou dispersé de manière confuse dans le code.
+
+7. Fonctionnalités attendues
+La V1 doit inclure seulement les fonctionnalités essentielles.
+Fonctionnalités obligatoires
+
+responsive mobile / tablette / desktop
+navigation fluide dans la page si menu présent
+téléphone cliquable
+email cliquable
+liens réseaux sociaux cliquables
+galerie simple ou bloc visuels simple
+structure HTML propre
+chargement rapide
+
+Fonctionnalités optionnelles légères
+Seulement si cela ne complexifie pas inutilement :
+
+bouton retour en haut
+ancres de navigation
+effet hover léger sur boutons ou liens
+
+
+8. Contraintes techniques
+Contraintes générales
+
+code propre et simple
+structure facile à maintenir
+pas de complexité inutile
+priorité à la lisibilité et à la modularité
+page légère
+images facilement remplaçables
+contenu texte facilement éditable
+aucune dépendance technique lourde si non nécessaire
+
+Contraintes de production
+
+la V1 doit pouvoir être corrigée rapidement après la visite boutique
+la structure doit être suffisamment souple pour passer en V2 sans refaire tout le travail
+pas de publication live définitive sans validation
+
+
+9. Hors périmètre de la V1
+Les éléments suivants ne doivent pas être développés dans cette V1 :
+
+e-commerce
+paiement en ligne
+catalogue dynamique
+espace admin complexe
+blog
+système de réservation
+formulaire avancé
+intégration Google Maps complexe
+SEO avancé
+animations complexes
+backend spécifique
+base de données
+espace client
+multilingue
+
+
+10. Logique de contenu
+Le site doit répondre à 4 questions simples :
+
+Qui est Maison Patine ?  
+Que propose la boutique ?  
+Où la trouver / comment la contacter ?  
+Pourquoi donner envie de venir voir ?
+
+Le site ne doit pas chercher à tout dire.Il doit surtout :
+
+être clair,
+rassurant,
+simple,
+crédible.
+
+
+11. Arborescence fonctionnelle de la page
+Ordre recommandé des blocs
+
+Hero
+Présentation
+Activités / univers
+Galerie
+Infos pratiques
+Contact / réseaux
+
+Cet ordre peut être ajusté, mais la logique générale doit rester simple.
+
+12. Critères de réussite de la V1
+La V1 sera considérée comme réussie si :
+
+la structure est claire,
+la page fonctionne bien sur mobile,
+les informations essentielles sont visibles rapidement,
+les blocs sont prêts à être mis à jour après visite,
+la page peut être montrée comme une base sérieuse,
+les textes et images sont facilement modifiables.
+
+
+13. Critères d’échec à éviter
+La V1 sera considérée comme ratée si :
+
+elle est trop complexe pour une première version,
+elle contient trop de fonctionnalités inutiles,
+elle repose sur du contenu difficile à modifier,
+elle ressemble à un template générique sans logique,
+elle nécessite trop de reprise pour passer en V2.
+
+
+14. Livrable attendu
+Le développeur doit livrer :
+
+une one-page fonctionnelle
+responsive
+avec toutes les sections prévues
+avec contenu provisoire intégré
+avec visuels temporaires ou blocs galerie prêts
+avec liens de contact paramétrés
+avec structure propre pour mise à jour rapide
+
+Attendu complémentaire
+Le code ou la structure doit être suffisamment claire pour permettre :
+
+remplacement rapide des textes,
+remplacement rapide des images,
+ajout des vraies informations sans refonte.
+
+
+15. Priorité projet
+Ordre de priorité pour cette V1 :
+
+Structure claire
+Contenus essentiels visibles
+Facilité de modification
+Responsive mobile
+Propreté d’exécution
+
+Le design détaillé viendra ensuite.Ce n’est pas la priorité de cette étape.
+
+16. Notes importantes pour le dev
+
+Ne pas surdévelopper
+Ne pas ajouter de fonctionnalités non demandées
+Garder une logique simple et propre
+Prévoir une base facilement évolutive
+La V1 doit être une fondation, pas un produit final figé
+
+
+17. Données à intégrer à ce stade
+Nom : Maison Patine
+Activités : Brocante – Décoration – Artisanat
+Adresse : 20 rue Vigarozy, 09500 Mirepoix
+Téléphone : 06 73 28 95 58
+Email : maisonpatine@outlook.fr
+Facebook : MaisonPatine
+Instagram : maisonpatine_
+Mention complémentaire : Achats de meubles et objets anciens
+
+Version ultra courte à envoyer en message à ton dev
+Si tu veux une version plus directe, tu peux lui envoyer ça :
+Je veux une V1 de site vitrine one-page pour Maison Patine.
+Objectif : poser une base propre, simple, responsive et facilement modifiable.
+
+Sections attendues :
+1. Hero
+2. Présentation
+3. Activités / univers
+4. Galerie simple
+5. Infos pratiques
+6. Contact / réseaux
+
+Infos à intégrer :
+- Maison Patine
+- Brocante / Décoration / Artisanat
+- 20 rue Vigarozy, 09500 Mirepoix
+- 06 73 28 95 58
+- maisonpatine@outlook.fr
+- Facebook : MaisonPatine
+- Instagram : maisonpatine_
+
+Contraintes :
+- one-page
+- responsive
+- code simple et propre
+- contenu modifiable facilement
+- images remplaçables rapidement
+- pas de fonctionnalités complexes
+
+Hors périmètre :
+- e-commerce
+- back-office complexe
+- blog
+- réservation
+- SEO avancé
+- animations complexes
+
+Le but n’est pas un site final, mais une base solide pour une V2 après récupération des vraies infos et photos.
+
+5. Risques et points de vigilance
+1. Risque : cahier des charges trop large
+Si tu laisses trop de liberté, ton dev peut partir dans une direction inutile.
+Prévention :
+
+limiter à une one-page
+lister précisément les sections
+formaliser le hors périmètre
+
+2. Risque : confusion entre V1 et site final
+Tu peux créer de mauvaises attentes.
+Prévention :
+
+préciser noir sur blanc que c’est une base évolutive
+dire que certaines infos seront validées demain
+
+3. Risque : contenu difficile à modifier
+C’est le plus gros risque opérationnel.
+Prévention :
+
+exiger une structure modifiable
+demander explicitement des zones simples à éditer
+éviter les composants trop figés
+
+4. Risque : surdéveloppement
+Le dev peut vouloir “bien faire” et perdre du temps.
+Prévention :
+
+rappeler les priorités
+encadrer les fonctionnalités
+interdire le hors périmètre
+
+

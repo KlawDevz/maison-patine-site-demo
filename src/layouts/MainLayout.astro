@@ -1,0 +1,195 @@
+---
+import "../styles/global.css";
+import MainNav from "../components/navigation/MainNav.astro";
+import SiteFooter from "../components/navigation/SiteFooter.astro";
+import SkipLink from "../components/navigation/SkipLink.astro";
+import { siteData } from "../data/site";
+
+type Props = {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  noindex?: boolean;
+};
+
+const {
+  title = "Maison Patine - Brocante, Décoration, Artisanat",
+  description = "Site vitrine V1 de Maison Patine à Mirepoix.",
+  canonicalPath = "/",
+  ogImage,
+  noindex = false
+} = Astro.props as Props;
+
+const canonicalUrl = new URL(canonicalPath, Astro.url).toString();
+const ogImageUrl = new URL(ogImage ?? "/images/devanture_magasinV2.webp", Astro.url).toString();
+const itineraryUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteData.common.address)}`;
+const whatsappDigits = siteData.common.phoneHref.replace(/\D/g, "");
+const whatsappUrl = `https://wa.me/${whatsappDigits}`;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="geo.region" content="FR-09" />
+    <meta name="geo.placename" content={siteData.common.city} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSg.woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeA.woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
+    
+    <!-- Favicon et App -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- SEO Canonique -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="fr-FR" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Maison Patine" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:alt" content="Devanture de la boutique Maison Patine à Mirepoix" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3B2F24" />
+    
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen antialiased has-mobile-dock">
+    <SkipLink />
+    <MainNav />
+    <slot />
+    <SiteFooter />
+    <div class="mobile-cta-dock" role="region" aria-label="Actions rapides">
+      <a class="mobile-cta-dock__link mobile-cta-dock__link--primary" href={siteData.common.phoneHref}>Appeler</a>
+      <a
+        class="mobile-cta-dock__link mobile-cta-dock__link--whatsapp"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Contacter ${siteData.common.brand} sur WhatsApp (nouvel onglet)`}
+      >
+        WhatsApp
+      </a>
+      <a
+        class="mobile-cta-dock__link"
+        href={itineraryUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Ouvrir l'itinéraire vers ${siteData.common.brand} dans Google Maps (nouvel onglet)`}
+      >
+        Itinéraire
+      </a>
+    </div>
+    <script is:inline>
+      (() => {
+        const getOpenStatusLabel = () => {
+          const nowInParis = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Paris" }));
+          const day = nowInParis.getDay();
+          const minutes = nowInParis.getHours() * 60 + nowInParis.getMinutes();
+          const isOpenDay = day >= 2 && day <= 6;
+          const isOpenTime = minutes >= 600 && minutes <= 1110;
+          const isOpen = isOpenDay && isOpenTime;
+
+          return isOpen
+            ? "Ouvert aujourd'hui jusqu'à 18h30"
+            : "Fermé actuellement · Mardi au samedi 10h00 - 18h30";
+        };
+
+        const openStatus = getOpenStatusLabel();
+        const openStatusTargets = document.querySelectorAll("[data-open-status]");
+        openStatusTargets.forEach((target) => {
+          target.textContent = openStatus;
+        });
+
+        const revealTargets = Array.from(document.querySelectorAll(".reveal:not(.home-reveal)"));
+
+        if (revealTargets.length === 0) {
+          return;
+        }
+
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+          revealTargets.forEach((target) => target.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        revealTargets.forEach((target, index) => {
+          if (!target.getAttribute("style")?.includes("transition-delay")) {
+            target.setAttribute("style", `${target.getAttribute("style") ?? ""}; transition-delay:${index * 80}ms`);
+          }
+          observer.observe(target);
+        });
+      })();
+    </script>
+  </body>
+</html>

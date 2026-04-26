@@ -1,0 +1,24 @@
+---
+type Activity = {
+  title: string;
+  description: string;
+};
+
+type Props = {
+  items: Activity[];
+};
+
+const { items } = Astro.props as Props;
+---
+
+<section id="activites" class="section-shell" aria-labelledby="activities-title">
+  <h2 id="activities-title" class="section-title">Activités et univers</h2>
+  <div class="mt-6 grid gap-4 md:grid-cols-2">
+    {items.map((item) => (
+      <article class="border border-[color:var(--line)] bg-[color:var(--bg-alt)] p-5" style="border-radius:2px;">
+        <h3 class="text-lg font-semibold">{item.title}</h3>
+        <p class="section-copy mt-2">{item.description}</p>
+      </article>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,38 @@
+---
+/**
+ * Bouton réutilisable - Style à définir par l'agent design
+ * Props : variant, href, target, rel, ariaLabel
+ */
+
+type Props = {
+  variant?: 'primary' | 'secondary' | 'outline';
+  href?: string;
+  target?: string;
+  rel?: string;
+  ariaLabel?: string;
+  class?: string;
+};
+
+const {
+  variant = 'primary',
+  href,
+  target,
+  rel,
+  ariaLabel,
+  class: className = ''
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+const baseClasses = 'btn';
+const variantClass = `btn--${variant}`;
+const classes = [baseClasses, variantClass, className].filter(Boolean).join(' ');
+---
+
+<Tag
+  class={classes}
+  {...href && { href, target, rel }}
+  {...ariaLabel && { 'aria-label': ariaLabel }}
+  {...!href && { type: 'button' }}
+>
+  <slot />
+</Tag>

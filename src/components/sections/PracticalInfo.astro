@@ -1,0 +1,37 @@
+---
+type Props = {
+  address: string;
+  phoneDisplay: string;
+  phoneHref: string;
+  email: string;
+  openingHours: string;
+};
+
+const { address, phoneDisplay, phoneHref, email, openingHours } = Astro.props as Props;
+---
+
+<section id="infos" class="section-shell" aria-labelledby="practical-title">
+  <h2 id="practical-title" class="section-title">Informations pratiques</h2>
+  <dl class="mt-6 grid gap-4 text-sm md:grid-cols-2 md:text-base">
+    <div>
+      <dt class="font-semibold">Adresse</dt>
+      <dd class="section-copy mt-1">{address}</dd>
+    </div>
+    <div>
+      <dt class="font-semibold">Téléphone</dt>
+      <dd class="mt-1">
+        <a class="section-copy underline decoration-dotted underline-offset-4" href={phoneHref}>{phoneDisplay}</a>
+      </dd>
+    </div>
+    <div>
+      <dt class="font-semibold">Email</dt>
+      <dd class="mt-1">
+        <a class="section-copy underline decoration-dotted underline-offset-4" href={`mailto:${email}`}>{email}</a>
+      </dd>
+    </div>
+    <div>
+      <dt class="font-semibold">Horaires</dt>
+      <dd class="section-copy mt-1">{openingHours}</dd>
+    </div>
+  </dl>
+</section>

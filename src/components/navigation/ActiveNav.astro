@@ -1,0 +1,59 @@
+---
+/**
+ * Navigation avec mise en évidence de la section active
+ * Utilise Intersection Observer côté client
+ */
+
+const navItems = [
+  { href: '#presentation', label: 'Présentation' },
+  { href: '#activites', label: 'Activités' },
+  { href: '#galerie', label: 'Galerie' },
+  { href: '#infos', label: 'Infos' },
+  { href: '#contact', label: 'Contact' }
+];
+---
+
+<nav aria-label="Navigation principale" class="nav-main" data-nav-main>
+  <ul class="nav-list" role="list">
+    {navItems.map(item => (
+      <li>
+        <a 
+          href={item.href} 
+          class="nav-link"
+          data-nav-link
+          data-target={item.href.slice(1)}
+        >
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  // Intersection Observer pour highlight de section active
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll<HTMLElement>('section[id]');
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            const target = link.getAttribute('data-target');
+            link.classList.toggle('is-active', target === id);
+          });
+        }
+      });
+    }, observerOptions);
+    
+    sections.forEach(section => observer.observe(section));
+  });
+</script>

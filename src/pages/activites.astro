@@ -1,0 +1,98 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { siteData } from "../data/site";
+---
+
+<MainLayout
+  title={siteData.metaByPage.activites.title}
+  description={siteData.metaByPage.activites.description}
+  canonicalPath={siteData.metaByPage.activites.canonicalPath}
+>
+  <main id="main-content" class="activities-page mx-auto flex w-full max-w-[1240px] flex-col gap-10 px-5 py-10 md:px-8 md:py-20">
+    <section class="section-shell activities-shell panel-glow reveal" aria-labelledby="activities-title">
+      <p class="activities-kicker da-eyebrow">UNIVERS DE BOUTIQUE</p>
+      <p class="da-ornament">Sélection et savoir-faire</p>
+      <h1 id="activities-title" class="section-title">{siteData.pages.activites.title}</h1>
+      <p class="section-copy mt-4 max-w-3xl">{siteData.pages.activites.intro}</p>
+
+      <div class="activities-grid mt-7">
+        {siteData.pages.activites.items.map((item, index) => (
+          <article class="activity-card border border-[color:var(--line)] bg-[color:var(--bg-alt)] p-5" style={`border-radius:2px; transition-delay:${index * 70}ms;`}>
+            <h2 class="text-lg font-semibold">{item.title}</h2>
+            <p class="section-copy mt-2">{item.description}</p>
+          </article>
+        ))}
+      </div>
+
+      <p class="section-copy mt-6 max-w-3xl">{siteData.pages.activites.closing}</p>
+
+      <div class="activities-actions mt-8">
+        <a class="btn-primary" href="/contact">Prendre contact</a>
+        <a class="anchor-link border border-[color:var(--line)]" href="/galerie">Voir nos inspirations</a>
+      </div>
+    </section>
+
+  </main>
+</MainLayout>
+
+<style>
+  .activities-kicker {
+    font-size: 0.74rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-500);
+    margin-bottom: 0.75rem;
+  }
+
+  .activities-shell {
+    background:
+      radial-gradient(circle at 12% 8%, rgba(109, 125, 100, 0.12), transparent 30%),
+      linear-gradient(150deg, color-mix(in srgb, var(--surface-rich) 92%, #fff 8%) 0%, color-mix(in srgb, var(--bg-alt) 86%, #fff 14%) 100%);
+    box-shadow: 0 16px 26px rgba(43, 32, 24, 0.08);
+  }
+
+  .activities-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .activities-shell .da-ornament {
+    margin-bottom: 0.9rem;
+  }
+
+  .activity-card {
+    transition: border-color 320ms ease, transform 320ms ease, box-shadow 320ms ease;
+    box-shadow: 0 8px 18px rgba(43, 32, 24, 0.05);
+  }
+
+  .activity-card:hover {
+    border-color: color-mix(in srgb, var(--line) 60%, var(--brand) 40%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(43, 32, 24, 0.1);
+  }
+
+  .activity-card h2 {
+    line-height: 1.24;
+  }
+
+  .activities-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 880px) {
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .activity-card,
+    .activity-card:hover {
+      transition: none;
+      transform: none;
+    }
+  }
+</style>

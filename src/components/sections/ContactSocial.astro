@@ -1,0 +1,56 @@
+---
+type Props = {
+  phoneDisplay: string;
+  phoneHref: string;
+  email: string;
+  instagramLabel: string;
+  instagramUrl: string;
+  facebookLabel: string;
+  facebookUrl: string;
+};
+
+const {
+  phoneDisplay,
+  phoneHref,
+  email,
+  instagramLabel,
+  instagramUrl,
+  facebookLabel,
+  facebookUrl
+} = Astro.props as Props;
+---
+
+<section id="contact" class="section-shell" aria-labelledby="contact-title">
+  <h2 id="contact-title" class="section-title">Contact et réseaux</h2>
+  <p class="section-copy mt-3 max-w-2xl">Un appel ou un message suffit pour préparer votre visite.</p>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a class="btn-primary" href={phoneHref}>Appeler {phoneDisplay}</a>
+    <a class="anchor-link border border-[color:var(--line)]" href={`mailto:${email}`}>Envoyer un email</a>
+  </div>
+
+  <ul class="mt-6 flex flex-wrap gap-4 text-sm md:text-base">
+    <li>
+      <a
+        class="section-copy underline decoration-dotted underline-offset-4"
+        href={instagramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Ouvrir Instagram ${instagramLabel} (nouvel onglet)`}
+      >
+        Instagram: {instagramLabel}
+      </a>
+    </li>
+    <li>
+      <a
+        class="section-copy underline decoration-dotted underline-offset-4"
+        href={facebookUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Ouvrir Facebook ${facebookLabel} (nouvel onglet)`}
+      >
+        Facebook: {facebookLabel}
+      </a>
+    </li>
+  </ul>
+</section>

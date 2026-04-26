@@ -1,0 +1,76 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Gallery from "../components/sections/Gallery.astro";
+import { siteData } from "../data/site";
+---
+
+<MainLayout
+  title={siteData.metaByPage.galerie.title}
+  description={siteData.metaByPage.galerie.description}
+  canonicalPath={siteData.metaByPage.galerie.canonicalPath}
+>
+  <div class="gallery-page-shell">
+    <main id="main-content" class="gallery-page-content mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-10 md:px-8 md:py-20">
+      <section class="gallery-hero" aria-labelledby="gallery-page-title">
+        <p class="gallery-kicker da-eyebrow">SELECTION VISUELLE</p>
+        <p class="da-ornament">Ambiances & matieres</p>
+        <h1 id="gallery-page-title" class="section-title">{siteData.pages.galerie.title}</h1>
+        <p class="section-copy mt-4 max-w-3xl">{siteData.pages.galerie.intro}</p>
+        <p class="section-copy mt-3 max-w-3xl text-sm uppercase tracking-[0.08em]">Filtrez les visuels par ambiance, matière ou mise en scène.</p>
+      </section>
+
+      <Gallery items={siteData.pages.galerie.items} />
+
+      <section class="section-shell panel-glow reveal" aria-labelledby="gallery-note-title">
+        <h2 id="gallery-note-title" class="section-title">Evolution de la galerie</h2>
+        <p class="section-copy mt-3 max-w-3xl">{siteData.pages.galerie.note}</p>
+        <p class="gallery-note-temp">Visuels temporaires issus de banques d'images en attendant la production photo client.</p>
+      </section>
+    </main>
+  </div>
+</MainLayout>
+
+<style>
+.gallery-page-shell {
+  background:
+    radial-gradient(circle at 84% 8%, rgba(176, 139, 87, 0.13), transparent 32%),
+    radial-gradient(circle at 14% 34%, rgba(109, 125, 100, 0.1), transparent 24%),
+    var(--bg-main);
+}
+
+  .gallery-page-content {
+    min-height: max(72vh, 42rem);
+  }
+
+  .gallery-hero {
+    padding: 2.6rem 0.4rem 2.3rem;
+    max-width: 52rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  }
+
+  .gallery-kicker {
+    color: color-mix(in oklab, var(--ink-500) 80%, #f4efe6 20%);
+    margin-bottom: 0.8rem;
+  }
+
+  .gallery-hero .da-ornament {
+    margin-bottom: 0.9rem;
+  }
+
+  .gallery-hero .section-title,
+  .gallery-hero .section-copy {
+    color: var(--ink-900);
+  }
+
+  .gallery-page-content :global(.section-shell) {
+    background: color-mix(in oklab, var(--surface) 92%, var(--bg-main) 8%);
+  }
+
+  .gallery-note-temp {
+    margin-top: 0.7rem;
+    color: var(--ink-500);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+
+</style>

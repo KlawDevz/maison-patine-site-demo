@@ -1,0 +1,198 @@
+
+================================================================================
+        BRIEF DESIGN — MAISON PATINE
+        Site vitrine one-page V1
+================================================================================
+
+--------------------------------------------------------------------------------
+1. CONCEPT GENERAL
+--------------------------------------------------------------------------------
+Direction artistique : "Le charme de l'ancien, la clarte du present."
+Le site doit transmettre l'atmosphere de la boutique avant meme d'y entrer.
+Sobre. Chaleureux. Intemporel. Artisanal haut de gamme accessible.
+
+Reference directe : la carte de visite existante (fond creme, serif elegante,
+etoile 8 branches, palette brun/creme).
+
+--------------------------------------------------------------------------------
+2. PALETTE DE COULEURS
+--------------------------------------------------------------------------------
+Fond principal       →  #F5F0E8   (creme chaud, papier ancien)
+Fond alternatif      →  #EDE7D9   (lin naturel)
+Fond sombre          →  #3B2F24   (brun fonce, section infos pratiques)
+Couleur principale   →  #3B2F24   (brun fonce)
+Couleur secondaire   →  #7A6651   (brun moyen, patine)
+Accent               →  #C8B49A   (beige dore, laiton mat)
+Texte principal      →  #2E2218   (quasi noir chaud)
+Texte secondaire     →  #6B5744   (brun doux)
+Fond blanc casse     →  #FDFAF5   (jamais de blanc pur #FFF)
+
+REGLES ABSOLUES :
+- Pas de blanc pur (#FFF)
+- Pas de noir pur (#000)
+- Pas de bleu, vert ou rouge
+
+--------------------------------------------------------------------------------
+3. TYPOGRAPHIE
+--------------------------------------------------------------------------------
+Titre principal / Logo  →  Cormorant Garamond (Google Fonts) — Serif elegant
+Titres de sections      →  Cormorant Garamond Regular ou Light
+Sous-titres             →  Cormorant Garamond Italic
+Texte courant           →  Lato Light
+Infos pratiques         →  Lato Regular
+
+REGLES :
+- Espacer les lettres de "MAISON PATINE" (+0.15em minimum)
+- Maximum 2 polices sur toute la page
+- Largeur de texte max : 65ch (jamais texte pleine largeur)
+- Titres de section en petites capitales ou minuscules elegantes
+
+--------------------------------------------------------------------------------
+4. ELEMENT SIGNATURE
+--------------------------------------------------------------------------------
+L'etoile a 8 branches ✦ (presente sur la carte de visite) est le symbole
+central de la marque. Elle doit apparaitre :
+- Dans le hero (centree, au-dessus du nom)
+- Comme separateur entre les sections
+- Comme bullet point decoratif
+- Comme favicon
+
+--------------------------------------------------------------------------------
+5. STRUCTURE DE LA PAGE (ordre des sections)
+--------------------------------------------------------------------------------
+
+[1] HERO
+    - Fond creme (#F5F0E8) ou photo en N&B desature
+    - Etoile ✦ centree en haut
+    - "MAISON PATINE" — grandes capitales espacees, Cormorant Garamond
+    - Sous-titre : "Brocante · Decoration · Artisanat"
+    - Phrase d'accroche en italique
+    - Bouton CTA : [ Nous contacter ] — style outlined, brun fonce
+    - Fleche vers le bas discrete (animation bounce simple)
+
+[2] PRESENTATION
+    - Fond alternatif #EDE7D9
+    - Titre : "Qui sommes-nous ?"
+    - Texte court, 3-4 lignes max, chaleureux et authentique
+    - Mention : "Mirepoix · Ariege · Depuis 2024"
+    - Texte centre desktop, aligne gauche mobile si long
+
+[3] ACTIVITES / UNIVERS
+    - Fond creme #F5F0E8
+    - Titre : "Nos univers"
+    - 3 cartes cote a cote (desktop) / colonne unique (mobile)
+      → Brocante / Decoration / Artisanat
+    - Image placeholder ratio 4:3 ou 1:1 par carte
+    - Mention separee : "Achats de meubles et objets anciens"
+    - Style cartes : border-radius max 4px, ombre tres legere
+
+[4] GALERIE
+    - Fond blanc casse #FDFAF5
+    - Titre : "La boutique" avec ✦
+    - Grille 3 colonnes, 6 images placeholders
+    - Images unifiees avec filtre CSS : sepia(20%) contrast(0.95)
+    - Mention "Photo a venir" sur les placeholders si necessaire
+
+[5] INFORMATIONS PRATIQUES
+    - FOND SOMBRE #3B2F24 / Texte creme #F5F0E8 (rupture visuelle)
+    - Titre : "Nous trouver"
+    - Adresse  : 20 rue Vigarozy, 09500 Mirepoix
+    - Telephone : 06 73 28 95 58  (lien cliquable <a href="tel:">)
+    - Email     : maisonpatine@outlook.fr  (lien cliquable <a href="mailto:">)
+    - Horaires  : "Horaires disponibles prochainement" (italique, discret)
+    - Icones : style ligne fine, monochrome creme (Lucide Icons ou Phosphor)
+
+[6] CONTACT / RESEAUX SOCIAUX
+    - Fond creme #F5F0E8
+    - Titre : "Restons en contact"
+    - Telephone et email cliquables
+    - Etoile ✦ centree comme separateur
+    - Liens : Facebook (MaisonPatine) / Instagram (maisonpatine_)
+    - Icones reseaux : monochrome brun (pas de couleurs officielles FB/IG)
+    - Footer : "© 2024 Maison Patine — Mirepoix"
+
+--------------------------------------------------------------------------------
+6. COMPOSANTS UI — REGLES GENERALES
+--------------------------------------------------------------------------------
+Boutons CTA :
+    - Style outlined (bordure fine, fond transparent)
+    - Couleur brun fonce #3B2F24
+    - Hover : inversion (fond brun, texte creme)
+    - Border-radius : max 4px
+    - Un seul CTA principal par section
+
+Separateurs de section :
+    - Etoile ✦ centree
+    - Ou ligne fine #C8B49A a 40% d'opacite
+    - Jamais de separateurs epais ou tres colores
+
+Navigation (si presente) :
+    - Sticky header minimaliste
+    - Fond creme leger, legerement opaque au scroll
+    - Logo texte "MAISON PATINE" a gauche, espacement genereux
+    - Liens discrets a droite
+    - Hamburger sobre sur mobile
+
+Espacement :
+    - Padding vertical sections : 80px desktop / 48px mobile
+    - Respiration genereux entre les blocs
+
+--------------------------------------------------------------------------------
+7. PHOTOS TEMPORAIRES — RECOMMANDATIONS
+--------------------------------------------------------------------------------
+Sources : Unsplash / Pexels
+Mots-cles : brocante, antique shop, vintage decor, flea market france
+
+Filtre CSS a appliquer sur toutes les images pour unifier :
+    filter: sepia(20%) contrast(0.95) brightness(1.05);
+
+Placeholders propres :
+    - Fond creme + etoile ✦ centree + texte "Photo a venir"
+
+--------------------------------------------------------------------------------
+8. A NE PAS FAIRE — LISTE ROUGE
+--------------------------------------------------------------------------------
+- Blanc pur (#FFF)                → Trop froid, detruit l'atmosphere
+- Bleu / vert / rouge             → Hors charte, incohérent
+- Border-radius > 6px             → Style app moderne incompatible
+- Polices sans-serif seules       → Perd le caractere de marque
+- Boutons pleins agressifs        → Casse l'atmosphere
+- Animations complexes            → Hors perimetre V1
+- Couleurs officielles FB / IG    → Rupture de coherence visuelle
+- Photos couleur heterogenes      → Detruit la cohérence sans traitement
+
+--------------------------------------------------------------------------------
+9. CHECKLIST AVANT LIVRAISON
+--------------------------------------------------------------------------------
+[ ] Palette appliquee (aucun blanc pur, aucune couleur parasite)
+[ ] Google Fonts charges : Cormorant Garamond + Lato
+[ ] Etoile ✦ utilisee comme element signature recurrent
+[ ] Nom de boutique lisible au-dessus de la fold sur mobile (375px)
+[ ] CTA "Nous contacter" visible et cliquable
+[ ] Telephone en <a href="tel:+33673289558">
+[ ] Email en <a href="mailto:maisonpatine@outlook.fr">
+[ ] Facebook et Instagram cliquables
+[ ] Section infos pratiques sur fond sombre
+[ ] Galerie avec placeholders remplacables facilement
+[ ] Mention horaires "a confirmer" presente
+[ ] Responsive verifie sur 375px et 390px (mobile)
+[ ] Padding sections suffisant sur mobile
+[ ] Favicon = etoile ✦ ou initiales MP en serif
+
+--------------------------------------------------------------------------------
+10. MOT DE SYNTHESE POUR LE DEVELOPPEUR
+--------------------------------------------------------------------------------
+Le design de Maison Patine doit etre sobre, chaleureux et intemporel.
+La carte de visite est la reference absolue.
+Le site doit en etre le prolongement naturel sur ecran.
+
+Aucun effet inutile.
+Aucune couleur parasite.
+Une seule exigence : que l'utilisateur ressente l'atmosphere
+de la boutique avant meme de pousser la porte.
+
+================================================================================
+        MAISON PATINE — 20 rue Vigarozy, 09500 Mirepoix
+        maisonpatine@outlook.fr — 06 73 28 95 58
+        Instagram : maisonpatine_ / Facebook : MaisonPatine
+================================================================================
