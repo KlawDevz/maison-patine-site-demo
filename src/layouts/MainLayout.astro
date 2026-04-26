@@ -117,7 +117,14 @@ const whatsappUrl = `https://wa.me/${whatsappDigits}`;
     <slot />
     <SiteFooter />
     <div class="mobile-cta-dock" role="region" aria-label="Actions rapides">
-      <a class="mobile-cta-dock__link mobile-cta-dock__link--primary" href={siteData.common.phoneHref}>Appeler</a>
+      <a class="mobile-cta-dock__link mobile-cta-dock__link--primary" href={siteData.common.phoneHref}>
+        <span class="mobile-cta-dock__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.32 1.76.6 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.17a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.6.6A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </span>
+        <span class="mobile-cta-dock__text">Appeler</span>
+      </a>
       <a
         class="mobile-cta-dock__link mobile-cta-dock__link--whatsapp"
         href={whatsappUrl}
@@ -125,16 +132,27 @@ const whatsappUrl = `https://wa.me/${whatsappDigits}`;
         rel="noopener noreferrer"
         aria-label={`Contacter ${siteData.common.brand} sur WhatsApp (nouvel onglet)`}
       >
-        WhatsApp
+        <span class="mobile-cta-dock__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.53 0 .21 5.32.21 11.86c0 2.09.55 4.14 1.59 5.95L0 24l6.39-1.68a11.84 11.84 0 0 0 5.68 1.45h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.14-3.42-8.43Zm-8.45 18.29h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.22-3.79 1 1.01-3.7-.23-.38a9.86 9.86 0 0 1-1.5-5.23c0-5.45 4.43-9.88 9.89-9.88 2.64 0 5.12 1.03 6.98 2.89a9.83 9.83 0 0 1 2.9 6.99c0 5.46-4.43 9.89-9.86 9.89Zm5.42-7.42c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.17.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.06 1.04-1.06 2.54 0 1.5 1.09 2.95 1.24 3.15.15.2 2.14 3.26 5.18 4.57.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.08 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35Z" />
+          </svg>
+        </span>
+        <span class="mobile-cta-dock__text">WhatsApp</span>
       </a>
       <a
-        class="mobile-cta-dock__link"
+        class="mobile-cta-dock__link mobile-cta-dock__link--route"
         href={itineraryUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Ouvrir l'itinéraire vers ${siteData.common.brand} dans Google Maps (nouvel onglet)`}
       >
-        Itinéraire
+        <span class="mobile-cta-dock__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </span>
+        <span class="mobile-cta-dock__text">Itinéraire</span>
       </a>
     </div>
     <script is:inline>
