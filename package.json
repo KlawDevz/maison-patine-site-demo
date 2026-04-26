@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "check": "astro check",
     "build": "astro build",
+    "build:strict": "npm run check && npm run build",
     "preview": "astro preview"
   },
   "dependencies": {

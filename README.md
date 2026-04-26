@@ -63,9 +63,11 @@ Fichiers à modifier pour le design :
 ## Commandes
 
 ```bash
-npm run dev      # Développement
-npm run build    # Build production
-npm run preview  # Preview build
+npm run dev           # Développement
+npm run check         # Astro check (types + diagnostics)
+npm run build         # Build production
+npm run build:strict  # check + build (mode senior)
+npm run preview       # Preview build
 ```
 
 ## SEO & Accessibilité déjà intégrés
