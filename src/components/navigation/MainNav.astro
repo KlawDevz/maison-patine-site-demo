@@ -58,6 +58,12 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
     background: transparent;
   }
 
+  @supports (top: env(safe-area-inset-top)) {
+    .site-head {
+      top: env(safe-area-inset-top);
+    }
+  }
+
   .nav-shell {
     position: relative;
     overflow: clip;
@@ -187,10 +193,6 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
   }
 
   @media (max-width: 760px) {
-    .site-head {
-      position: static;
-    }
-
     .nav-shell {
       padding: 0.95rem;
     }
