@@ -61,12 +61,13 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
   .nav-shell {
     position: relative;
     overflow: clip;
-    backdrop-filter: none;
+    backdrop-filter: blur(8px) saturate(108%);
+    -webkit-backdrop-filter: blur(8px) saturate(108%);
     background:
-      radial-gradient(circle at 12% -34%, rgba(176, 139, 87, 0.2), transparent 58%),
-      linear-gradient(142deg, color-mix(in srgb, var(--surface-rich) 91%, #fff 9%) 0%, color-mix(in srgb, var(--bg-alt) 86%, #fff 14%) 100%);
-    border-color: color-mix(in srgb, var(--line) 70%, rgba(176, 139, 87, 0.34));
-    box-shadow: 0 10px 24px rgba(43, 32, 24, 0.1);
+      radial-gradient(circle at 12% -34%, rgba(176, 139, 87, 0.22), transparent 58%),
+      linear-gradient(142deg, color-mix(in srgb, var(--surface-rich) 88%, #fff 12%) 0%, color-mix(in srgb, var(--bg-alt) 82%, #fff 18%) 100%);
+    border-color: color-mix(in srgb, var(--line) 64%, rgba(176, 139, 87, 0.36));
+    box-shadow: 0 12px 28px rgba(43, 32, 24, 0.12);
   }
 
   .nav-shell::before,
@@ -77,9 +78,9 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
   }
 
   .nav-shell::before {
-    inset: 0.4rem;
-    border: 1px solid color-mix(in srgb, var(--accent-gold) 28%, transparent);
-    opacity: 0.6;
+    inset: 0.38rem;
+    border: 1px solid color-mix(in srgb, var(--accent-gold) 34%, transparent);
+    opacity: 0.64;
   }
 
   .nav-shell::after {
@@ -108,15 +109,16 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
   .brand-name {
     font-family: var(--font-display);
-    font-size: 1.18rem;
-    letter-spacing: 0.03em;
+    font-size: 1.24rem;
+    letter-spacing: 0.035em;
     color: var(--ink-900);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
   }
 
   .brand-line {
     margin-top: 0.25rem;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
+    font-size: 0.62rem;
+    letter-spacing: 0.21em;
     text-transform: uppercase;
     color: var(--ink-500);
   }
@@ -128,11 +130,11 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
   }
 
   .nav-shell :global(.anchor-link) {
-    font-size: 0.76rem;
-    letter-spacing: 0.11em;
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    border: 1px solid color-mix(in srgb, var(--line) 64%, rgba(176, 139, 87, 0.45));
-    background: color-mix(in srgb, var(--bg-main) 90%, #fff 10%);
+    border: 1px solid color-mix(in srgb, var(--line) 62%, rgba(176, 139, 87, 0.45));
+    background: color-mix(in srgb, var(--bg-main) 88%, #fff 12%);
     color: var(--ink-900);
     font-weight: 600;
     transition: transform var(--motion-fast) var(--ease-snappy), border-color var(--motion-fast) var(--ease-snappy), background-color var(--motion-fast) var(--ease-snappy), color var(--motion-fast) var(--ease-snappy), box-shadow var(--motion-fast) var(--ease-snappy);
@@ -140,10 +142,10 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
   }
 
   .nav-links a[aria-current="page"] {
-    color: color-mix(in srgb, var(--brand-soft) 80%, #2b2018 20%);
-    border-color: color-mix(in srgb, var(--brand) 60%, var(--line) 40%);
-    background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 12%, #fff 88%), color-mix(in srgb, var(--bg-main) 88%, #fff 12%));
-    box-shadow: 0 7px 14px rgba(43, 32, 24, 0.1);
+    color: color-mix(in srgb, var(--brand-soft) 82%, #2b2018 18%);
+    border-color: color-mix(in srgb, var(--brand) 66%, var(--line) 34%);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 16%, #fff 84%), color-mix(in srgb, var(--bg-main) 84%, #fff 16%));
+    box-shadow: 0 9px 16px rgba(43, 32, 24, 0.12);
   }
 
   .nav-links a[aria-current="page"]::after {
@@ -169,9 +171,9 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
 
   .nav-links a:hover,
   .nav-links a:focus-visible {
-    border-color: color-mix(in srgb, var(--brand) 44%, var(--line) 56%);
+    border-color: color-mix(in srgb, var(--brand) 52%, var(--line) 48%);
     transform: translateY(-1px);
-    box-shadow: 0 8px 14px rgba(43, 32, 24, 0.1);
+    box-shadow: 0 10px 16px rgba(43, 32, 24, 0.12);
   }
 
   .nav-links a:active {
